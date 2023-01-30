@@ -8,20 +8,14 @@ void merge(int p, int q, int r) {
     // sort by end time
     // if end time is equal, then sort by start time
     while(i <= q && j <= r) {
-        if(ed[i] < ed[j]) {
+        if( ed[i] < ed[j] || 
+            (ed[i] == ed[j] && st[i] <= st[j])) {
             temp_ed[k] = ed[i];
             temp_st[k++] = st[i++];
-        } else if (ed[i] > ed[j]) {
+        } else if ( ed[i] > ed[j] ||
+                    (ed[i] == ed[j] && st[i] > st[j])) {
             temp_ed[k] = ed[j];
             temp_st[k++] = st[j++];
-        } else {
-            if(st[i] <= st[j]) {
-                temp_ed[k] = ed[i];
-                temp_st[k++] = st[i++];
-            } else {
-                temp_ed[k] = ed[j];
-                temp_st[k++] = st[j++];
-            }
         }
     }
     while(i <= q) {
@@ -39,10 +33,9 @@ void merge(int p, int q, int r) {
 }
 
 void mergesort(int p, int r) {
-    int q;
+    int q = (p + r) / 2;
     if(p >= r) return;
 
-    q = (p + r) / 2;
     mergesort(p, q);
     mergesort(q+1, r);
     merge(p, q, r);
