@@ -17,10 +17,9 @@ print((A | B | C) - A)
 # 4.2.4
 participant = ['Apeach', 'Ryan', 'Muzi', 'Choonsik', 'Neo', 'Tube']
 completion = ['Ryan', 'Muzi', 'Neo', 'Choonsik']
-not_comp = []
-for x in participant:
-    if x in completion:
-        not_comp.append(x)
+participant = set(participant)
+completion = set(completion)
+not_comp = list(participant - completion)
 print(not_comp)
 # 4.2.5
 names = ['Apeach', 'Ryan', 'Muzi', 'Choonsik', 'Neo', 'Tube']
