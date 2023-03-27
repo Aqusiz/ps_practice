@@ -23,7 +23,9 @@ not_comp = list(participant - completion)
 print(not_comp)
 # 4.2.5
 names = ['Apeach', 'Ryan', 'Muzi', 'Choonsik', 'Neo', 'Tube']
-class_dict = dict(enumerate(sorted(names), 1))
+names.sort()
+# class_dict = dict(enumerate(sorted(names), 1))
+class_dict = {i+1: names[i] for i in range(len(names))}
 print(class_dict)
 # 4.2.6
 scores = [85, 96, 78, 88, 81, 92, 73]
@@ -66,8 +68,8 @@ a = 3
 n = 4
 print([x*3 for x in range(1, n+1)])
 # 4.2.12
-foods = input().split()
-prices = list(map(int, input().split()))
+foods = "ham bread chicken egg".split()
+prices = list(map(int, "1200 5000 17000 500".split()))
 print(f"Cheapest food: {foods[prices.index(min(prices))]}")
 print(f"Most Expensive food: {foods[prices.index(max(prices))]}")
 # 4.2.13
