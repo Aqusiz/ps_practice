@@ -4,7 +4,7 @@
 #include <stack>
 
 using namespace std;
-// my code with stack (linear time)
+// my code with stack (sweeping, linear time)
 int fence_max(vector<int>& fences) {
     int n = fences.size() - 1, ans = 0, temp;
     int i = 0, j = n - 1;
